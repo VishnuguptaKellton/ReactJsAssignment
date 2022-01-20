@@ -101,7 +101,7 @@
 	{"code": "HK", "code3": "HKG", "name": "Hong Kong", "number": "344"},
 	{"code": "HU", "code3": "HUN", "name": "Hungary", "number": "348"},
 	{"code": "IS", "code3": "ISL", "name": "Iceland", "number": "352"},
-	{"code": "IN", "code3": "IND", "name": "India", "number": "356"},
+	{"code": "IN", "code3": "IND", "name": "India", "number": "91"},
 	{"code": "ID", "code3": "IDN", "name": "Indonesia", "number": "360"},
 	{"code": "IR", "code3": "IRN", "name": "Iran (Islamic Republic of)", "number": "364"},
 	{"code": "IQ", "code3": "IRQ", "name": "Iraq", "number": "368"},

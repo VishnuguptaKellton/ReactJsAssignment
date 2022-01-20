@@ -69,7 +69,7 @@ export default class RegisterUser extends Component {
 
       }
   
-      alert(Number.isNaN(this.state.PhoneNumber))
+
      if(this.state.PhoneNumber==""){
         this.setState({errorPhoneNumber:true,phoneNumberErrorMessage:'Please Enter phone number'})
           return;
