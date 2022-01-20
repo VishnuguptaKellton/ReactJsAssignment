@@ -6,6 +6,9 @@ import style from './App.css';
 import PhoneInput from 'react-phone-number-input'
 import countryListAllIsoData from './CountyCode'
 import { Modal } from 'react-bootstrap';
+import CButton from './components/CButton';
+import CInput from './components/CInput';
+import HeaderPanel from './components/HeaderPanel';
 
 export default class RegisterUser extends Component {
 
@@ -103,24 +106,18 @@ export default class RegisterUser extends Component {
       <div className="col-md-6"  style={{
       }}>
       <Panel bsStyle="info" className="centeralign">
-        <Panel.Heading>
-          <Panel.Title componentClass="h3">{'User Register'}</Panel.Title>
-        </Panel.Heading>
-
+        <HeaderPanel
+        title={'User Register'}
+        />
         <div className="field">
-            <input
-            style={{
-              width: "90%",
-              marginTop:10,
-              paddingLeft: "8px",
-              paddingTop: "6px",
-              paddingBottom: "6px",
-            }}
-             placeholder={'First Name'}
-              type="text"
-              value={this.state.FirstName}
-              onChange={data=>this.handleFirstName(data)}
-            />
+
+        <CInput
+          placeholder={'First Name'}
+          className={'input_style'}
+          value={this.state.FirstName}
+          Onevent={(value)=>this.handleFirstName(value)}
+      />
+
             {this.state.errorFirstName&&
                <h5 className="error">{`* ${this.state.firstNameErrorMessage}`} </h5> 
             }
@@ -128,19 +125,12 @@ export default class RegisterUser extends Component {
           </div>
       
           <div className="field">
-            <input
-            style={{
-              width: "90%",
-              marginTop:20,
-            
-              paddingLeft: "8px",
-              paddingTop: "6px",
-              paddingBottom: "6px",
-            }}
-             placeholder={'Last name'}
-              type="text"
+          
+            <CInput
+              placeholder={'Last name'}
+              className={'input_style2'}
               value={this.state.LastName}
-              onChange={data=>this.handleLastName(data)}
+              Onevent={(value)=>this.handleLastName(value)}
             />
              {this.state.errorLastName&&
                <h5 className="error">{`* ${this.state.lastNameErrorMessage}`} </h5> 
@@ -150,7 +140,7 @@ export default class RegisterUser extends Component {
 
       
 
-          <div className="field" style={{ marginTop:20,}}>
+          <div className="field" style={{ marginTop:45,}}>
 
           <select style={{width:'20%', height:37}} value={this.state.country} onChange={data=>this.selectCountry(data)}>
               {
@@ -162,38 +152,23 @@ export default class RegisterUser extends Component {
                 
               </select>
 
-            <input
-            style={{
-              width: "70%",
-              marginTop:15,
-            marginLeft:10,
-              paddingLeft: "8px",
-              paddingTop: "6px",
-              paddingBottom: "6px",
-            }}
-             placeholder={'Phone Number'}
-              type="text"
-              value={this.state.PhoneNumber }
-              onChange={data=>this.handlePhoneNumber(data)}
+              <CInput
+              placeholder={'Phone Number'}
+              className={'input_style3'}
+              value={this.state.PhoneNumber}
+              Onevent={(value)=>this.handlePhoneNumber(value)}
             />
+
+          
              {this.state.errorPhoneNumber&&
                <h5 className="error">{`* ${this.state.phoneNumberErrorMessage}`} </h5> 
             }
           </div>
 
-       
-
-          <button 
-            style={{
-              width:'90%',
-              marginBottom:30,
-              height:40,
-              backgroundColor:'green',
-              color:'white',
-              marginTop:30,
-
-            }}
-          onClick={()=>this.onSubmit()}>SUBMIT</button>
+        <CButton 
+          name={'SUBMIT'}
+          onSubmit={()=>this.onSubmit()}
+        />
 
       </Panel>
 

@@ -6,6 +6,9 @@ import style from './App.css';
 import PhoneInput from 'react-phone-number-input'
 import countryListAllIsoData from './CountyCode'
 import { Modal } from 'react-bootstrap';
+import HeaderPanel from './components/HeaderPanel';
+import CInput from './components/CInput';
+import CButton from './components/CButton';
 
 export default class CheckAnagaram extends Component {
 
@@ -97,24 +100,19 @@ export default class CheckAnagaram extends Component {
       <div className="col-md-6"  style={{
       }}>
       <Panel bsStyle="info" className="centeralign">
-        <Panel.Heading>
-          <Panel.Title componentClass="h3">{'Check Anagaram'}</Panel.Title>
-        </Panel.Heading>
+        <HeaderPanel
+        title={'Check Anagaram'}
+        />
 
         <div className="field">
-            <input
-            style={{
-              width: "90%",
-              marginTop:10,
-              paddingLeft: "8px",
-              paddingTop: "6px",
-              paddingBottom: "6px",
-            }}
-             placeholder={'Enter String one '}
-              type="text"
-              value={this.state.str1}
-              onChange={data=>this.handleStr1(data)}
-            />
+
+          <CInput
+            placeholder={'Enter String one'}
+            className={'input_style'}
+            value={this.state.str1}
+            Onevent={(value)=>this.handleStr1(value)}
+        />
+      
             {this.state.errorStr1&&
                <h5 className="error">{`* ${this.state.errorMessageStr1}`} </h5> 
             }
@@ -122,46 +120,32 @@ export default class CheckAnagaram extends Component {
           </div>
       
           <div className="field">
-            <input
-            style={{
-              width: "90%",
-              marginTop:20,
-            
-              paddingLeft: "8px",
-              paddingTop: "6px",
-              paddingBottom: "6px",
-            }}
-             placeholder={'Enter Second String'}
-              type="text"
-              value={this.state.str2}
-              onChange={data=>this.handleStr2(data)}
-            />
+
+
+          <CInput
+            placeholder={'Enter Second String'}
+            className={'input_style2'}
+            value={this.state.str2}
+            Onevent={(value)=>this.handleStr2(value)}
+        />
+
+  
              {this.state.errorStr2&&
                <h5 className="error">{`* ${this.state.errorMessageStr2}`} </h5> 
             }
           </div>
         
-           <div>
+           <div style={{marginTop:50}}>
            {this.state.checkMessage!==""&&
                <h5 className="success">{`${this.state.checkMessage}`} </h5> 
             }
              </div>   
-      
+    
 
-
-       
-
-          <button 
-            style={{
-              width:'90%',
-              marginBottom:30,
-              height:40,
-              backgroundColor:'green',
-              color:'white',
-              marginTop:30,
-
-            }}
-          onClick={()=>this.onSubmit()}>SUBMIT</button>
+        <CButton 
+          name={'SUBMIT'}
+          onSubmit={()=>this.onSubmit()}
+        />
 
       </Panel>
             
